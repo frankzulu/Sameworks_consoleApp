@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sameworks.ConsoleApp.Repositories;
 using System;
 
 namespace Sameworks.ConsoleApp
@@ -26,7 +27,7 @@ namespace Sameworks.ConsoleApp
                 })
                 .ConfigureServices((context, services) =>
                 {
-
+                    services.AddScoped<ISampleRepository, SampleRepository>();
                 });
     }
 }

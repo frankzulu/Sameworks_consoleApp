@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Sameworks.ConsoleApp.Models;
+using Sameworks.ConsoleApp.Repositories;
 
 namespace Sameworks.ConsoleApp
 {
     public class Worker
     {
+        private readonly ISampleRepository _sampleRepository;
         private readonly IConfiguration _configuration;
         private readonly ILogger<Worker> _logger;
         private ProgramSettings _programSettings = new ProgramSettings();
@@ -14,10 +16,12 @@ namespace Sameworks.ConsoleApp
         {
             _logger.LogInformation("Starting Run Method In Worker Class.");
             _logger.LogInformation($"Title: {_programSettings.Title}");
+            _sampleRepository.DoSomething();
         }
 
-        public Worker(IConfiguration configuration, ILogger<Worker> logger)
+        public Worker(ISampleRepository sampleRepository, IConfiguration configuration, ILogger<Worker> logger)
         {
+            _sampleRepository = sampleRepository;
             _configuration = configuration;
             _configuration.GetSection("ProgramSettings").Bind(_programSettings);
             _logger = logger;
