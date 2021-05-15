@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Sameworks.ConsoleApp
 {
@@ -6,7 +9,24 @@ namespace Sameworks.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var host = CreateHostBuilder(args).Build();
+            var worker = ActivatorUtilities.CreateInstance<Worker>(host.Services);
+            worker.Run();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, configuration) =>
+                {
+                    configuration.Sources.Clear();
+                    var environmentName = Environment.GetEnvironmentVariable("DOTNETCORE_ENVIRONMENT");
+                    configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    configuration.AddJsonFile($"appsettings.{environmentName}.json", optional: true, reloadOnChange: true);
+                    configuration.AddCommandLine(args);
+                })
+                .ConfigureServices((context, services) =>
+                {
+
+                });
     }
 }
