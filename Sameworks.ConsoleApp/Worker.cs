@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Sameworks.ConsoleApp.Models;
 using Sameworks.ConsoleApp.Repositories;
+using System;
 
 namespace Sameworks.ConsoleApp
 {
@@ -17,6 +18,9 @@ namespace Sameworks.ConsoleApp
             _logger.LogInformation("Starting Run Method In Worker Class.");
             _logger.LogInformation($"Title: {_programSettings.Title}");
             _sampleRepository.DoSomething();
+
+            Console.WriteLine($"key1: {_configuration["key1"]}");
+            Console.WriteLine($"key2: {_configuration["key2"]}");
         }
 
         public Worker(ISampleRepository sampleRepository, IConfiguration configuration, ILogger<Worker> logger)
