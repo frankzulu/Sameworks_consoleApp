@@ -1,20 +1,15 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+The Sameworks project was created as a "follow-along" repository for my blog article [dotNET Core Console App](http://www.afreshdeveloper.com/2021/05/16/afreshdeveloper/).
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Purpose
+The purpose was to demo how to get the same functionality in a Console Application you get "out-of-the-box" from an ASP.NET Application. Functionality like:
+- Configuration from appsettings.json
+- Logging
+- Dependency Injection
+- Bonus: Command Line Argument Parsing
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+# Why The Name "Sameworks"?
+I'll be the first to admit that I am not creative. I consider myself more autistic than I would artistic. Therefore I employ the help of creative services. The one I used to come up with the name is called [Foswig](https://mrsharpoblunto.github.io/foswig.js/). I thought the name was nifty, to say the least. Sameworks because you can create a console application that works the same as an ASP.NET Application.
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+I spent several hours of research and reading thru Microsoft Documentation spanning over several days to put this together. My hope is that it saves you hours if not days of research while making a console application that makes use of all the .NET Core functionality that comes "out-of-the-box" from an ASP.NET Application. If you feel there are some things that can be done better please provide some feedback and I'll be more than happy to include it as part of this repository.
